@@ -17,15 +17,28 @@ body{
 
 .sidebar{
     width:260px;
-    background:linear-gradient(180deg,#0B2C54,#163B72);
+    background:#0B2C54;
     color:white;
-    min-height:100vh;
+    height:100vh;
     padding:25px;
     position:fixed;
     left:0;
     top:0;
+    overflow-y:auto;     /* Enables sidebar scrolling */
+    scrollbar-width: thin;
     box-shadow:4px 0 15px rgba(0,0,0,.15);
 }
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#FF9933;
+    border-radius:10px;
+}
+
+
 
 .logo{
     text-align:center;
@@ -348,4 +361,17 @@ td{
     table{
         min-width:600px;
     }
+}
+.logout-btn{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logout-btn i{
+    width:28px;
+}
+
+.logout-btn:hover{
+    background:#163B72;
 }
