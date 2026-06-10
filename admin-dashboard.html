@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GovConnect Admin Dashboard</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="close-btn" onclick="toggleSidebar()">
+✕
+</div>
+
+<div class="logo-section">
+
+<img src="Assest/stacklylogo (1).webp" width="180">
+
+<p class="portal-text">
+ADMIN PORTAL
+</p>
+
+</div>
+
+<h4 class="menu-title">MAIN</h4>
+
+<ul>
+
+<li class="menu-item active"
+onclick="showSection('dashboard',this)">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</li>
+
+<li class="menu-item"
+onclick="showSection('applications',this)">
+<i class="fa-solid fa-file-circle-check"></i>
+Applications
+</li>
+
+<li class="menu-item"
+onclick="showSection('departments',this)">
+<i class="fa-solid fa-building-columns"></i>
+Departments
+</li>
+
+<li class="menu-item"
+onclick="showSection('citizens',this)">
+<i class="fa-solid fa-users"></i>
+Citizens
+</li>
+
+</ul>
+
+
+<h4 class="menu-title">ACCOUNT</h4>
+
+<ul>
+
+<li class="menu-item"
+onclick="showSection('profile',this)">
+<i class="fa-solid fa-user"></i>
+Profile
+</li>
+
+<li onclick="window.location.href='login.html'">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<div class="topbar">
+
+<button class="menu-btn"
+onclick="toggleSidebar()">
+☰
+</button>
+
+<h1>Admin Dashboard</h1>
+
+<div class="top-right">
+
+<span id="adminEmailDisplay"></span>
+
+<div class="top-icons">
+
+<div class="icon-box">
+<i class="fas fa-bell"></i>
+<span class="tooltip">Notifications</span>
+</div>
+
+<div class="icon-box">
+<i class="fas fa-comment-alt"></i>
+<span class="tooltip">Messages</span>
+</div>
+
+<div class="icon-box">
+<i class="fas fa-question-circle"></i>
+<span class="tooltip">Help Center</span>
+</div>
+
+<a href="login.html" class="icon-box">
+<i class="fas fa-sign-out-alt"></i>
+<span class="tooltip">Logout</span>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="dashboard" class="content-section">
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-users"></i>
+<h3>Total Citizens</h3>
+<h2>2,450</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-file-circle-check"></i>
+<h3>Total Applications</h3>
+<h2>1,240</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Approved</h3>
+<h2>980</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-clock"></i>
+<h3>Pending</h3>
+<h2>260</h2>
+</div>
+
+</div>
+
+
+<div class="shipment-table">
+
+<h2>Recent Applications</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Citizen</th>
+<th>Service</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>GC1001</td>
+<td>Selva Kumar</td>
+<td>Passport</td>
+<td>Approved</td>
+</tr>
+
+<tr>
+<td>GC1002</td>
+<td>Ravi</td>
+<td>Income Certificate</td>
+<td>Pending</td>
+</tr>
+
+<tr>
+<td>GC1003</td>
+<td>Karthik</td>
+<td>Scholarship</td>
+<td>Approved</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- APPLICATIONS -->
+
+<div id="applications"
+class="content-section"
+style="display:none;">
+
+<h2>Government Applications</h2>
+
+<div class="shipment-table">
+
+<table>
+
+<tr>
+<th>Application ID</th>
+<th>Citizen Name</th>
+<th>Service</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>GC1001</td>
+<td>Selva Kumar</td>
+<td>Passport</td>
+<td>Approved</td>
+</tr>
+
+<tr>
+<td>GC1002</td>
+<td>Ramesh</td>
+<td>Aadhaar Update</td>
+<td>Pending</td>
+</tr>
+
+<tr>
+<td>GC1003</td>
+<td>Priya</td>
+<td>Income Certificate</td>
+<td>Completed</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- DEPARTMENTS -->
+
+<div id="departments"
+class="content-section"
+style="display:none;">
+
+<h2>Government Departments</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-building-columns"></i>
+<h3>Revenue Department</h3>
+<h2>35 Staff</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-heart-pulse"></i>
+<h3>Health Department</h3>
+<h2>42 Staff</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-graduation-cap"></i>
+<h3>Education Department</h3>
+<h2>28 Staff</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-seedling"></i>
+<h3>Agriculture Department</h3>
+<h2>20 Staff</h2>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CITIZENS -->
+
+<div id="citizens"
+class="content-section"
+style="display:none;">
+
+<h2>Citizen Details</h2>
+
+<div class="shipment-table">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>CIT001</td>
+<td>Selva Kumar</td>
+<td>selva@gmail.com</td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>CIT002</td>
+<td>Arun</td>
+<td>arun@gmail.com</td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>CIT003</td>
+<td>Priya</td>
+<td>priya@gmail.com</td>
+<td>Inactive</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div id="profile"
+class="content-section"
+style="display:none;">
+
+<h2>Admin Profile</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-user"></i>
+<h3>Name</h3>
+<h2>Administrator</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-envelope"></i>
+<h3>Email</h3>
+<h2 id="profileEmail"></h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-user-shield"></i>
+<h3>Role</h3>
+<h2>Admin</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Status</h3>
+<h2>Active</h2>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+// Show logged-in email
+document.getElementById("adminEmailDisplay").innerText =
+localStorage.getItem("loggedInEmail");
+
+document.getElementById("profileEmail").innerText =
+localStorage.getItem("loggedInEmail");
+
+
+// Sidebar Toggle
+function toggleSidebar(){
+
+    document.querySelector(".sidebar")
+    .classList.toggle("show");
+
+    document.querySelector(".overlay")
+    .classList.toggle("active");
+
+}
+
+
+// Change Sections
+function showSection(sectionId, element){
+
+    document.querySelectorAll(".content-section")
+    .forEach(section => {
+
+        section.style.display = "none";
+
+    });
+
+    document.getElementById(sectionId)
+    .style.display = "block";
+
+
+    document.querySelectorAll(".menu-item")
+    .forEach(item => {
+
+        item.classList.remove("active");
+
+    });
+
+    element.classList.add("active");
+
+
+    if(window.innerWidth <= 768){
+
+        document.querySelector(".sidebar")
+        .classList.remove("show");
+
+        document.querySelector(".overlay")
+        .classList.remove("active");
+
+    }
+
+}
+
+
+// Logout
+function logout(){
+
+    localStorage.removeItem("loggedInEmail");
+
+    window.location.href = "login.html";
+
+}
+
+</script>
+
+</body>
+</html>

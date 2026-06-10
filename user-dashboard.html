@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Dashboard - GovConnect</title>
+
+<link rel="stylesheet" href="user.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div class="close-btn" onclick="toggleSidebar()">
+        ✕
+    </div>
+
+    <div class="logo-section">
+
+        <img src="./Assest/stacklylogo (1).webp" width="180">
+
+        <p class="portal-text">USER PORTAL</p>
+
+    </div>
+
+    <h4 class="menu-title">MAIN</h4>
+
+    <ul>
+
+        <li class="menu-item active"
+        onclick="showSection('dashboard',this)">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </li>
+
+        <li class="menu-item"
+        onclick="showSection('services',this)">
+            <i class="fa-solid fa-file-circle-check"></i>
+            Applied Services
+        </li>
+
+        <li class="menu-item"
+        onclick="showSection('track',this)">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Track Application
+        </li>
+
+        <li class="menu-item"
+        onclick="showSection('status',this)">
+            <i class="fa-solid fa-clock"></i>
+            Application Status
+        </li>
+
+    </ul>
+
+    <h4 class="menu-title">ACCOUNT</h4>
+
+    <ul>
+
+        <li class="menu-item"
+        onclick="showSection('profile',this)">
+            <i class="fa-solid fa-user"></i>
+            Profile
+        </li>
+
+        <li onclick="window.location.href='login.html'">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <div class="topbar">
+
+        <button class="menu-btn" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <h1>Welcome Back</h1>
+
+        <div class="top-right">
+
+            <span id="userEmailDisplay"></span>
+
+            <div class="top-icons">
+
+                <div class="icon-box">
+                    <i class="fas fa-bell"></i>
+                    <span class="tooltip">Notifications</span>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fas fa-comment-alt"></i>
+                    <span class="tooltip">Messages</span>
+                </div>
+
+                <div class="icon-box">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="tooltip">Help Center</span>
+                </div>
+
+                <a href="login.html" class="icon-box">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="tooltip">Logout</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="dashboard" class="content-section">
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-file-circle-check"></i>
+            <h3>Applied Services</h3>
+            <h2>12</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-certificate"></i>
+            <h3>Certificates</h3>
+            <h2>05</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Approved Requests</h3>
+            <h2>09</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Pending Requests</h3>
+            <h2>03</h2>
+        </div>
+
+    </div>
+
+    <div class="shipment-table">
+
+        <h2>Recent Applications</h2>
+
+        <table>
+
+            <tr>
+                <th>Application ID</th>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+
+            <tr>
+                <td>GC1001</td>
+                <td>Passport Application</td>
+                <td>Approved</td>
+                <td>10-06-2026</td>
+            </tr>
+
+            <tr>
+                <td>GC1002</td>
+                <td>Income Certificate</td>
+                <td>Pending</td>
+                <td>09-06-2026</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div id="services" class="content-section" style="display:none;">
+
+    <h2>Applied Services</h2>
+
+    <div class="shipment-table">
+
+        <table>
+
+            <tr>
+                <th>Application ID</th>
+                <th>Service Name</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>GC1001</td>
+                <td>Passport Application</td>
+                <td>Approved</td>
+            </tr>
+
+            <tr>
+                <td>GC1002</td>
+                <td>Income Certificate</td>
+                <td>Pending</td>
+            </tr>
+
+            <tr>
+                <td>GC1003</td>
+                <td>Driving License</td>
+                <td>Completed</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div id="track" class="content-section" style="display:none;">
+
+    <h2>Track Application</h2>
+
+    <div class="card">
+
+        <h3>
+            <i class="fa-solid fa-file"></i>
+            Application ID : GC1001
+        </h3>
+
+        <br>
+
+        <p><b>Applicant :</b> Selva Kumar</p>
+
+        <br>
+
+        <p><b>Service :</b> Passport Application</p>
+
+        <br>
+
+        <p><b>Department :</b> External Affairs</p>
+
+        <br>
+
+        <p><b>Current Stage :</b> Verification</p>
+
+        <br>
+
+        <p><b>Expected Approval :</b> 15 June 2026</p>
+
+    </div>
+
+
+    <div class="shipment-table">
+
+        <h2>Application Progress</h2>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <p class="progress-text">
+            75% Completed
+        </p>
+
+        <br>
+
+        <div class="tracking-step completed">
+            <i class="fa-solid fa-circle-check"></i>
+            Application Submitted
+        </div>
+
+        <div class="tracking-step completed">
+            <i class="fa-solid fa-circle-check"></i>
+            Documents Verified
+        </div>
+
+        <div class="tracking-step active">
+            <i class="fa-solid fa-spinner"></i>
+            Under Review
+        </div>
+
+        <div class="tracking-step pending">
+            <i class="fa-regular fa-circle"></i>
+            Approval Pending
+        </div>
+
+    </div>
+
+</div>
+
+<div id="status" class="content-section" style="display:none;">
+
+    <h2>Application Status</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Applications</h3>
+            <h2>12</h2>
+        </div>
+
+        <div class="card">
+            <h3>Approved</h3>
+            <h2>09</h2>
+        </div>
+
+        <div class="card">
+            <h3>Pending</h3>
+            <h2>03</h2>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="profile" class="content-section" style="display:none;">
+
+    <h2>My Profile</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-user"></i>
+            <h3>Full Name</h3>
+            <h2>Selva Kumar</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <h2 id="profileEmail"></h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-phone"></i>
+            <h3>Phone</h3>
+            <h2>6379294974</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-user-tag"></i>
+            <h3>Role</h3>
+            <h2>User</h2>
+        </div>
+
+    </div>
+
+
+    <div class="shipment-table">
+
+        <h2>Account Information</h2>
+
+        <table>
+
+            <tr>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+
+            <tr>
+                <td>User ID</td>
+                <td>USR1001</td>
+            </tr>
+
+            <tr>
+                <td>Account Status</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Member Since</td>
+                <td>2026</td>
+            </tr>
+
+            <tr>
+                <td>Total Applications</td>
+                <td>12</td>
+            </tr>
+
+            <tr>
+                <td>Approved Requests</td>
+                <td>09</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+// Show Email in Topbar
+document.getElementById("userEmailDisplay").innerText =
+localStorage.getItem("loggedInEmail");
+
+document.getElementById("profileEmail").innerText =
+localStorage.getItem("loggedInEmail");
+
+
+// Sidebar Toggle
+function toggleSidebar(){
+
+    document.querySelector(".sidebar")
+    .classList.toggle("show");
+
+    document.querySelector(".overlay")
+    .classList.toggle("active");
+
+}
+
+
+// Logout
+function logout(){
+
+    localStorage.removeItem("loggedInEmail");
+
+    window.location.href = "login.html";
+
+}
+
+
+// Change Sections
+function showSection(sectionId, element){
+
+    document.querySelectorAll(".content-section")
+    .forEach(section => {
+
+        section.style.display = "none";
+
+    });
+
+    document.getElementById(sectionId)
+    .style.display = "block";
+
+
+    document.querySelectorAll(".menu-item")
+    .forEach(item => {
+
+        item.classList.remove("active");
+
+    });
+
+    element.classList.add("active");
+
+
+    // Close sidebar automatically on mobile
+    if(window.innerWidth <= 768){
+
+        document.querySelector(".sidebar")
+        .classList.remove("show");
+
+        document.querySelector(".overlay")
+        .classList.remove("active");
+
+    }
+
+}
+
+</script>
+</body>
+</html>

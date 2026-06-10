@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovConnect Sign Up</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="login-box">
+
+        <img src="./Assest/stacklylogoo.webp" class="logo">
+
+        <h2>Create Account</h2>
+
+        <form id="signupForm">
+
+    <div class="input-box">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="name" placeholder="Full Name">
+    </div>
+    <small class="error" id="nameError"></small>
+
+    <div class="input-box">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email Address">
+    </div>
+    <small class="error" id="emailError"></small>
+
+    <div class="input-box">
+        <i class="fa-solid fa-phone"></i>
+        <input type="text" id="phone" placeholder="Phone Number">
+    </div>
+    <small class="error" id="phoneError"></small>
+
+    <div class="input-box">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" placeholder="Password">
+    </div>
+    <small class="error" id="passwordError"></small>
+
+    <div class="input-box">
+    <i class="fa-solid fa-lock"></i>
+    <input type="password"
+           id="confirmPassword"
+           placeholder="Confirm Password">
+</div>
+
+<small class="error" id="confirmPasswordError"></small>
+
+<div class="input-box">
+    <i class="fa-solid fa-user-tag"></i>
+
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+</div>
+
+<small class="error" id="roleError"></small>
+
+    <button type="submit">Create Account</button>
+
+    <p id="successMsg"></p>
+
+</form>
+
+        <div class="bottom-text">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const form = document.getElementById("signupForm");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // Clear errors
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("confirmPasswordError").innerHTML = "";
+    document.getElementById("roleError").innerHTML = "";
+
+    let valid = true;
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let confirmPassword =
+        document.getElementById("confirmPassword").value.trim();
+
+    let role = document.getElementById("role").value;
+
+    // Name
+    if(name === ""){
+        document.getElementById("nameError").innerHTML =
+        "Name is required";
+        valid = false;
+    }
+
+    // Email
+    if(email === ""){
+        document.getElementById("emailError").innerHTML =
+        "Email is required";
+        valid = false;
+    }
+
+    // Phone
+    if(phone === ""){
+        document.getElementById("phoneError").innerHTML =
+        "Phone number is required";
+        valid = false;
+    }
+
+    // Password
+    if(password === ""){
+        document.getElementById("passwordError").innerHTML =
+        "Password is required";
+        valid = false;
+    }
+
+    // Confirm Password
+    if(confirmPassword === ""){
+        document.getElementById("confirmPasswordError").innerHTML =
+        "Confirm password is required";
+        valid = false;
+    }
+    else if(password !== confirmPassword){
+        document.getElementById("confirmPasswordError").innerHTML =
+        "Passwords do not match";
+        valid = false;
+    }
+
+    // Role
+    if(role === ""){
+        document.getElementById("roleError").innerHTML =
+        "Please select a role";
+        valid = false;
+    }
+
+    // Redirect
+    if(valid){
+
+        form.reset();
+
+        if(role === "admin"){
+            window.location.href = "admin-login.html";
+        }
+        else{
+            window.location.href = "login.html";
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
